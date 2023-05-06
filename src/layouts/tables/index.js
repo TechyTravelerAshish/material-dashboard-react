@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /**
 =========================================================
 * Material Dashboard 2 React - v2.1.0
@@ -53,7 +54,7 @@ function Tables() {
                 coloredShadow="info"
               >
                 <MDTypography variant="h6" color="white">
-                  Authors Table
+                  Sample Table 1
                 </MDTypography>
               </MDBox>
               <MDBox pt={3}>
@@ -67,6 +68,16 @@ function Tables() {
               </MDBox>
             </Card>
           </Grid>
+        </Grid>
+      </MDBox>
+    </DashboardLayout>
+  );
+}
+
+export default Tables;
+
+/*
+
           <Grid item xs={12}>
             <Card>
               <MDBox
@@ -80,7 +91,7 @@ function Tables() {
                 coloredShadow="info"
               >
                 <MDTypography variant="h6" color="white">
-                  Projects Table
+                  Sample Table 2
                 </MDTypography>
               </MDBox>
               <MDBox pt={3}>
@@ -94,11 +105,5 @@ function Tables() {
               </MDBox>
             </Card>
           </Grid>
-        </Grid>
-      </MDBox>
-      <Footer />
-    </DashboardLayout>
-  );
-}
 
-export default Tables;
+          */
