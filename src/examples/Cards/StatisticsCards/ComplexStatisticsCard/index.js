@@ -1,3 +1,6 @@
+/* eslint-disable react/default-props-match-prop-types */
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 /** =========================================================
 * Material Dashboard 2 React - v2.1.0
 =========================================================
@@ -17,15 +20,12 @@ import Card from "@mui/material/Card";
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
 
-function ComplexStatisticsCard({ title, sname, percentage }) {
+function ComplexStatisticsCard({ title, sname, percentage, font }) {
   return (
     <Card>
       <MDBox display="flex" justifyContent="space-between" pt={0.4} px={1.5}>
-        <MDBox textAlign="right" lineHeight={1.25}>
-          <MDTypography variant="button" fontWeight="light" color="text">
-            {title}
-          </MDTypography>
-          <MDTypography variant="h6">{sname}</MDTypography>
+        <MDBox textAlign="left" lineHeight={1.25}>
+          <MDTypography variant={font}>{sname}</MDTypography>
         </MDBox>
       </MDBox>
 
@@ -49,6 +49,7 @@ function ComplexStatisticsCard({ title, sname, percentage }) {
 // Setting default values for the props of ComplexStatisticsCard
 ComplexStatisticsCard.defaultProps = {
   color: "info",
+  font: "body2",
   percentage: {
     color: "success",
     text: "",
@@ -58,6 +59,7 @@ ComplexStatisticsCard.defaultProps = {
 
 // Typechecking props for the ComplexStatisticsCard
 ComplexStatisticsCard.propTypes = {
+  font: PropTypes.string,
   color: PropTypes.oneOf([
     "primary",
     "secondary",
