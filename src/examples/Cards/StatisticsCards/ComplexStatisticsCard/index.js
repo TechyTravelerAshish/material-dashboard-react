@@ -1,18 +1,12 @@
-/**
-=========================================================
+/** =========================================================
 * Material Dashboard 2 React - v2.1.0
 =========================================================
-
 * Product Page: https://www.creative-tim.com/product/material-dashboard-react
 * Copyright 2022 Creative Tim (https://www.creative-tim.com)
-
 Coded by www.creative-tim.com
-
  =========================================================
-
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
-
 // prop-types is a library for typechecking of props
 import PropTypes from "prop-types";
 
@@ -26,7 +20,7 @@ import MDTypography from "components/MDTypography";
 function ComplexStatisticsCard({ title, sname, percentage }) {
   return (
     <Card>
-      <MDBox display="flex" justifyContent="space-between" pt={1} px={2}>
+      <MDBox display="flex" justifyContent="space-between" pt={0.4} px={1.5}>
         <MDBox textAlign="right" lineHeight={1.25}>
           <MDTypography variant="button" fontWeight="light" color="text">
             {title}
@@ -35,7 +29,7 @@ function ComplexStatisticsCard({ title, sname, percentage }) {
         </MDBox>
       </MDBox>
 
-      <MDBox pb={2} px={2}>
+      <MDBox pb={0.4} px={1.5}>
         <MDTypography component="p" variant="button" color="text" display="flex">
           <MDTypography
             component="span"
