@@ -23,13 +23,8 @@ import MDTypography from "components/MDTypography";
 function ComplexStatisticsCard({ title, sname, percentage, font }) {
   return (
     <Card>
-      <MDBox display="flex" justifyContent="space-between" pt={0.4} px={1.5}>
-        <MDBox textAlign="left" lineHeight={1.25}>
-          <MDTypography variant={font}>{sname}</MDTypography>
-        </MDBox>
-      </MDBox>
-
       <MDBox pb={0.4} px={1.5}>
+        <MDTypography variant={font}>{sname}</MDTypography>
         <MDTypography component="p" variant="button" color="text" display="flex">
           <MDTypography
             component="span"
@@ -89,3 +84,13 @@ ComplexStatisticsCard.propTypes = {
 };
 
 export default ComplexStatisticsCard;
+
+/*
+
+      <MDBox display="flex" justifyContent="space-between" pt={0.4} px={1.5}>
+        <MDBox textAlign="left" lineHeight={1.25}>
+          <MDTypography variant={font}>{sname}</MDTypography>
+        </MDBox>
+      </MDBox>
+
+      */

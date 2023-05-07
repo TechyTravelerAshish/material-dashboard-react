@@ -28,22 +28,23 @@ function Dashboard() {
   return (
     <DashboardLayout>
       <DashboardNavbar />
-      <MDBox py={3}>
-        <Grid container spacing={2}>
-          <Grid item xs={12} md={6} lg={1.5}>
+      <MDBox py={0}>
+        <Grid container spacing={1.2}>
+          <Grid item xs={12} md={6} lg={1.2}>
             <MDBox mb={1.5}>
               <ComplexStatisticsCard
+                bgColor="info"
                 font="h6"
-                sname="Vijay"
+                sname=""
                 percentage={{
-                  color: "",
-                  amount: "",
+                  color: "info",
+                  amount: "Vijay",
                   label: "",
                 }}
               />
             </MDBox>
           </Grid>
-          <Grid item xs={12} md={6} lg={1.5}>
+          <Grid item xs={12} md={6} lg={1.2}>
             <MDBox mb={1.5}>
               <ComplexStatisticsCard
                 sname="Iron Fly"
@@ -55,19 +56,19 @@ function Dashboard() {
               />
             </MDBox>
           </Grid>
-          <Grid item xs={12} md={6} lg={1.5}>
+          <Grid item xs={12} md={6} lg={1.45}>
             <MDBox mb={1.5}>
               <ComplexStatisticsCard
                 sname="Iron Contor"
                 percentage={{
                   color: "error",
-                  amount: "Failed",
+                  amount: "Success",
                   label: "",
                 }}
               />
             </MDBox>
           </Grid>
-          <Grid item xs={12} md={6} lg={1.4}>
+          <Grid item xs={12} md={6} lg={1.75}>
             <MDBox mb={1.5}>
               <ComplexStatisticsCard
                 sname="Short Strangle"
@@ -79,7 +80,7 @@ function Dashboard() {
               />
             </MDBox>
           </Grid>
-          <Grid item xs={12} md={6} lg={1.5}>
+          <Grid item xs={12} md={6} lg={1.4}>
             <MDBox mb={1.5}>
               <ComplexStatisticsCard
                 sname="Cal Spread"
@@ -98,26 +99,26 @@ function Dashboard() {
                 sname="Booked P&L"
                 percentage={{
                   color: "success",
-                  amount: "Success",
+                  amount: "100",
                   label: "",
                 }}
               />
             </MDBox>
           </Grid>
-          <Grid item xs={12} md={6} lg={1.5}>
+          <Grid item xs={12} md={6} lg={1.8}>
             <MDBox mb={1.5}>
               <ComplexStatisticsCard
                 color="primary"
                 sname="Un-Booked P&L"
                 percentage={{
                   color: "success",
-                  amount: "Success",
+                  amount: "200",
                   label: "",
                 }}
               />
             </MDBox>
           </Grid>
-          <Grid item xs={12} md={6} lg={1.5}>
+          <Grid item xs={12} md={6} lg={1.7}>
             <MDBox mb={1.5}>
               <ComplexStatisticsCard
                 color="primary"
@@ -132,6 +133,10 @@ function Dashboard() {
           </Grid>
         </Grid>
       </MDBox>
+
+
+
+      
       <MDBox py={3}>
         <Grid container spacing={2}>
           <Grid item xs={12} md={6} lg={1.5}>
@@ -202,8 +207,8 @@ function Dashboard() {
                 sname="Booked P&L"
                 percentage={{
                   color: "success",
-                  amount: "",
-                  label: "Success",
+                  amount: "Success",
+                  label: "",
                 }}
               />
             </MDBox>
@@ -215,8 +220,8 @@ function Dashboard() {
                 sname="Un-Booked P&L"
                 percentage={{
                   color: "success",
-                  amount: "",
-                  label: "Success",
+                  amount: "Success",
+                  label: "",
                 }}
               />
             </MDBox>
@@ -228,8 +233,8 @@ function Dashboard() {
                 sname="Active Trades"
                 percentage={{
                   color: "success",
-                  amount: "",
-                  label: "Success",
+                  amount: "Success",
+                  label: "",
                 }}
               />
             </MDBox>
