@@ -61,7 +61,7 @@ function Dashboard() {
               <ComplexStatisticsCard
                 sname="Iron Contor"
                 percentage={{
-                  color: "error",
+                  color: "success",
                   amount: "Success",
                   label: "",
                 }}
@@ -133,53 +133,38 @@ function Dashboard() {
           </Grid>
         </Grid>
       </MDBox>
-
-
-
-      
-      <MDBox py={3}>
-        <Grid container spacing={2}>
-          <Grid item xs={12} md={6} lg={1.5}>
+      <MDBox py={0}>
+        <Grid container spacing={1.2}>
+          <Grid item xs={12} md={6} lg={1.2}>
             <MDBox mb={1.5}>
               <ComplexStatisticsCard
+                bgColor="info"
                 font="h6"
-                sname="Ashish"
+                sname=""
                 percentage={{
-                  color: "",
-                  amount: "",
+                  color: "info",
+                  amount: "Ashish",
                   label: "",
                 }}
               />
             </MDBox>
           </Grid>
-          <Grid item xs={12} md={6} lg={1.5}>
+          <Grid item xs={12} md={6} lg={1.2}>
             <MDBox mb={1.5}>
               <ComplexStatisticsCard
                 sname="Iron Fly"
                 percentage={{
-                  color: "success",
-                  amount: "Success",
+                  color: "error",
+                  amount: "Failure",
                   label: "",
                 }}
               />
             </MDBox>
           </Grid>
-          <Grid item xs={12} md={6} lg={1.5}>
+          <Grid item xs={12} md={6} lg={1.45}>
             <MDBox mb={1.5}>
               <ComplexStatisticsCard
                 sname="Iron Contor"
-                percentage={{
-                  color: "error",
-                  amount: "Failed",
-                  label: "",
-                }}
-              />
-            </MDBox>
-          </Grid>
-          <Grid item xs={12} md={6} lg={1.4}>
-            <MDBox mb={1.5}>
-              <ComplexStatisticsCard
-                sname="Short Strangle"
                 percentage={{
                   color: "warning",
                   amount: "Warning",
@@ -188,7 +173,19 @@ function Dashboard() {
               />
             </MDBox>
           </Grid>
-          <Grid item xs={12} md={6} lg={1.5}>
+          <Grid item xs={12} md={6} lg={1.75}>
+            <MDBox mb={1.5}>
+              <ComplexStatisticsCard
+                sname="Short Strangle"
+                percentage={{
+                  color: "success",
+                  amount: "Success",
+                  label: "",
+                }}
+              />
+            </MDBox>
+          </Grid>
+          <Grid item xs={12} md={6} lg={1.4}>
             <MDBox mb={1.5}>
               <ComplexStatisticsCard
                 sname="Cal Spread"
@@ -207,26 +204,26 @@ function Dashboard() {
                 sname="Booked P&L"
                 percentage={{
                   color: "success",
-                  amount: "Success",
+                  amount: "100",
                   label: "",
                 }}
               />
             </MDBox>
           </Grid>
-          <Grid item xs={12} md={6} lg={1.5}>
+          <Grid item xs={12} md={6} lg={1.8}>
             <MDBox mb={1.5}>
               <ComplexStatisticsCard
                 color="primary"
                 sname="Un-Booked P&L"
                 percentage={{
                   color: "success",
-                  amount: "Success",
+                  amount: "200",
                   label: "",
                 }}
               />
             </MDBox>
           </Grid>
-          <Grid item xs={12} md={6} lg={1.5}>
+          <Grid item xs={12} md={6} lg={1.7}>
             <MDBox mb={1.5}>
               <ComplexStatisticsCard
                 color="primary"
