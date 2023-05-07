@@ -284,7 +284,7 @@ function Configurator() {
           <Switch checked={darkMode} onChange={handleDarkMode} />
         </MDBox>
         <Divider />
-        <MDTypography variant="caption">Version 1.3</MDTypography>
+        <MDTypography variant="caption">Version 1.4</MDTypography>
       </MDBox>
     </ConfiguratorRoot>
   );

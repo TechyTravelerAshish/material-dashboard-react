@@ -33,9 +33,7 @@ function Dashboard() {
           <Grid item xs={12} md={6} lg={1.2}>
             <MDBox mb={1.5}>
               <ComplexStatisticsCard
-                bgColor="info"
-                font="h6"
-                sname=""
+                sname="User"
                 percentage={{
                   color: "info",
                   amount: "Vijay",
@@ -59,7 +57,7 @@ function Dashboard() {
           <Grid item xs={12} md={6} lg={1.45}>
             <MDBox mb={1.5}>
               <ComplexStatisticsCard
-                sname="Iron Contor"
+                sname="Iron Condor"
                 percentage={{
                   color: "success",
                   amount: "Success",
@@ -138,9 +136,7 @@ function Dashboard() {
           <Grid item xs={12} md={6} lg={1.2}>
             <MDBox mb={1.5}>
               <ComplexStatisticsCard
-                bgColor="info"
-                font="h6"
-                sname=""
+                sname="User"
                 percentage={{
                   color: "info",
                   amount: "Ashish",
@@ -164,7 +160,7 @@ function Dashboard() {
           <Grid item xs={12} md={6} lg={1.45}>
             <MDBox mb={1.5}>
               <ComplexStatisticsCard
-                sname="Iron Contor"
+                sname="Iron Condor"
                 percentage={{
                   color: "warning",
                   amount: "Warning",
