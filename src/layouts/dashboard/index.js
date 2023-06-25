@@ -23,7 +23,7 @@ import MDBox from "components/MDBox";
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import ComplexStatisticsCard from "examples/Cards/StatisticsCards/ComplexStatisticsCard";
-
+// Testing 25-Jun-2023
 function Dashboard() {
   return (
     <DashboardLayout>
@@ -172,7 +172,7 @@ function Dashboard() {
           <Grid item xs={12} md={6} lg={1.75}>
             <MDBox mb={1.5}>
               <ComplexStatisticsCard
-                sname="Short Strangle"
+                sname="Long Straddle"
                 percentage={{
                   color: "success",
                   amount: "Success",
