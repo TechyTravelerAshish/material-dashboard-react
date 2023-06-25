@@ -54,7 +54,8 @@ function Dashboard() {
       .then((res) => {
         // console.log(res.json);
         setPosts(res);
-        console.log("First Response From Fetch API: ", res);
+        console.log("CP1 Response From Fetch API: ", JSON.parse(JSON.stringify(res)));
+        // console.log("CP2 Response From Fetch API: ", posts[0].planA_status);
       });
     // }; ,60000);
     // return () => clearInterval(interval);
@@ -83,14 +84,16 @@ function Dashboard() {
       .then((response) => response.json())      
       .then((data) => {
         // console.log("Response From displayApiRespone - ", data.json);
-        const { title, description } = data;
-        renderApiRespone(title, description);
+        const { planE_status, description } = data;
+        console.log("title - ",planE_status);
+        renderApiRespone(planE_status, description);
       });
   };
 
 
   
   const renderApiRespone = (title, description) => (
+    // console.log("title - ",title);
       <div>
         <h3>{title}</h3>
         <p>{description}</p>
