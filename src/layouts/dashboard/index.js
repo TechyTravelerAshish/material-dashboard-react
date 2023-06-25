@@ -1,3 +1,9 @@
+/* eslint-disable no-use-before-define */
+/* eslint-disable no-console */
+/* eslint-disable prettier/prettier */
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
+/* eslint-disable camelcase */
 /**
 =========================================================
 * Material Dashboard 2 React - v2.1.0
@@ -24,7 +30,74 @@ import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import ComplexStatisticsCard from "examples/Cards/StatisticsCards/ComplexStatisticsCard";
 // Testing 25-Jun-2023
+import { useEffect, useState } from "react";
+
 function Dashboard() {
+  const [posts, setPosts] = useState([]);
+  const development_url = "https://r5k39ic534.execute-api.us-east-2.amazonaws.com/dev/";
+  const testing_url = "https://r5k39ic534.execute-api.us-east-2.amazonaws.com/test/";
+  const dev_url = development_url;
+
+  const fetch_dev_url = "https://r5k39ic534.execute-api.us-east-2.amazonaws.com/dev/fetchstatus";
+  const fetch_test_url = "https://r5k39ic534.execute-api.us-east-2.amazonaws.com/test/fetchstatus";
+  const fetch_url = fetch_dev_url;
+
+  const page_refresh_seconds = 2;
+  const page_refresh_interval = page_refresh_seconds * 1000;
+
+  const [usersForRender, setUsersForRender] = useState([]);
+
+  useEffect(() => {
+    // const interval = setInterval(() => {
+    fetch(fetch_url)
+      .then((res) => res.json())
+      .then((res) => {
+        // console.log(res.json);
+        setPosts(res);
+        console.log("First Response From Fetch API: ", res);
+      });
+    // }; ,60000);
+    // return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      fetch(fetch_url)
+        .then((res) => res.json())
+        .then((res) => {
+          // console.log(res.json);
+
+          setPosts(res);
+          console.log(
+            `Response Refresh From Fetch API after ${page_refresh_seconds} Seconds: `,
+            res
+          );
+        });
+        displayApiRespone(fetch_url);
+    }, page_refresh_interval);
+    return () => clearInterval(interval);
+  }, []);
+
+  const displayApiRespone = (url) => {
+    fetch(url)
+      .then((response) => response.json())      
+      .then((data) => {
+        // console.log("Response From displayApiRespone - ", data.json);
+        const { title, description } = data;
+        renderApiRespone(title, description);
+      });
+  };
+
+
+  
+  const renderApiRespone = (title, description) => (
+      <div>
+        <h3>{title}</h3>
+        <p>{description}</p>
+      </div>
+    );
+
+
   return (
     <DashboardLayout>
       <DashboardNavbar />
@@ -36,7 +109,7 @@ function Dashboard() {
                 sname="User"
                 percentage={{
                   color: "info",
-                  amount: "Vijay",
+                  amount: "Test1",
                   label: "",
                 }}
               />
@@ -49,121 +122,6 @@ function Dashboard() {
                 percentage={{
                   color: "success",
                   amount: "Success",
-                  label: "",
-                }}
-              />
-            </MDBox>
-          </Grid>
-          <Grid item xs={12} md={6} lg={1.45}>
-            <MDBox mb={1.5}>
-              <ComplexStatisticsCard
-                sname="Iron Condor"
-                percentage={{
-                  color: "success",
-                  amount: "Success",
-                  label: "",
-                }}
-              />
-            </MDBox>
-          </Grid>
-          <Grid item xs={12} md={6} lg={1.75}>
-            <MDBox mb={1.5}>
-              <ComplexStatisticsCard
-                sname="Short Strangle"
-                percentage={{
-                  color: "success",
-                  amount: "Success",
-                  label: "",
-                }}
-              />
-            </MDBox>
-          </Grid>
-          <Grid item xs={12} md={6} lg={1.4}>
-            <MDBox mb={1.5}>
-              <ComplexStatisticsCard
-                sname="Cal Spread"
-                percentage={{
-                  color: "success",
-                  amount: "Success",
-                  label: "",
-                }}
-              />
-            </MDBox>
-          </Grid>
-          <Grid item xs={12} md={6} lg={1.5}>
-            <MDBox mb={1.5}>
-              <ComplexStatisticsCard
-                color="primary"
-                sname="Booked P&L"
-                percentage={{
-                  color: "success",
-                  amount: "100",
-                  label: "",
-                }}
-              />
-            </MDBox>
-          </Grid>
-          <Grid item xs={12} md={6} lg={1.8}>
-            <MDBox mb={1.5}>
-              <ComplexStatisticsCard
-                color="primary"
-                sname="Un-Booked P&L"
-                percentage={{
-                  color: "success",
-                  amount: "200",
-                  label: "",
-                }}
-              />
-            </MDBox>
-          </Grid>
-          <Grid item xs={12} md={6} lg={1.7}>
-            <MDBox mb={1.5}>
-              <ComplexStatisticsCard
-                color="primary"
-                sname="Active Trades"
-                percentage={{
-                  color: "success",
-                  amount: "Success",
-                  label: "",
-                }}
-              />
-            </MDBox>
-          </Grid>
-        </Grid>
-      </MDBox>
-      <MDBox py={0}>
-        <Grid container spacing={1.2}>
-          <Grid item xs={12} md={6} lg={1.2}>
-            <MDBox mb={1.5}>
-              <ComplexStatisticsCard
-                sname="User"
-                percentage={{
-                  color: "info",
-                  amount: "Ashish",
-                  label: "",
-                }}
-              />
-            </MDBox>
-          </Grid>
-          <Grid item xs={12} md={6} lg={1.2}>
-            <MDBox mb={1.5}>
-              <ComplexStatisticsCard
-                sname="Iron Fly"
-                percentage={{
-                  color: "error",
-                  amount: "Failure",
-                  label: "",
-                }}
-              />
-            </MDBox>
-          </Grid>
-          <Grid item xs={12} md={6} lg={1.45}>
-            <MDBox mb={1.5}>
-              <ComplexStatisticsCard
-                sname="Iron Condor"
-                percentage={{
-                  color: "warning",
-                  amount: "Warning",
                   label: "",
                 }}
               />
@@ -181,61 +139,11 @@ function Dashboard() {
               />
             </MDBox>
           </Grid>
-          <Grid item xs={12} md={6} lg={1.4}>
-            <MDBox mb={1.5}>
-              <ComplexStatisticsCard
-                sname="Cal Spread"
-                percentage={{
-                  color: "success",
-                  amount: "Success",
-                  label: "",
-                }}
-              />
-            </MDBox>
-          </Grid>
-          <Grid item xs={12} md={6} lg={1.5}>
-            <MDBox mb={1.5}>
-              <ComplexStatisticsCard
-                color="primary"
-                sname="Booked P&L"
-                percentage={{
-                  color: "success",
-                  amount: "100",
-                  label: "",
-                }}
-              />
-            </MDBox>
-          </Grid>
-          <Grid item xs={12} md={6} lg={1.8}>
-            <MDBox mb={1.5}>
-              <ComplexStatisticsCard
-                color="primary"
-                sname="Un-Booked P&L"
-                percentage={{
-                  color: "success",
-                  amount: "200",
-                  label: "",
-                }}
-              />
-            </MDBox>
-          </Grid>
-          <Grid item xs={12} md={6} lg={1.7}>
-            <MDBox mb={1.5}>
-              <ComplexStatisticsCard
-                color="primary"
-                sname="Active Trades"
-                percentage={{
-                  color: "success",
-                  amount: "Success",
-                  label: "",
-                }}
-              />
-            </MDBox>
-          </Grid>
         </Grid>
       </MDBox>
+      
     </DashboardLayout>
   );
-}
 
+}
 export default Dashboard;
