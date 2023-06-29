@@ -55,7 +55,7 @@ function Dashboard() {
  
 
   useEffect(() => {
-    fetch(fetch_url)
+    fetch('https://n7gp4t7ewpjigjtty6nfa4z53i0hxosx.lambda-url.us-east-2.on.aws')
       .then((response) => response.json())
       // eslint-disable-next-line no-shadow
       .then((data) => { 
@@ -75,34 +75,35 @@ function Dashboard() {
           <Grid container spacing={1.2}>   
           {data.map((item) => (
           
-          <><Grid item xs={12} md={6} lg={1.2}>
-             
+          <><Grid item xs={12} md={6} lg={1.2}>             
               <MDBox mb={1.5}>
                 <ComplexStatisticsCard
                   sname="User"
                   percentage={{
                     color: "info",
-                    amount: item.state_id,
+                    amount: item.USER_NAME,
                     label: "",
                   }} />
               </MDBox>
-            </Grid><Grid item xs={12} md={6} lg={1.2}>
+            </Grid>
+            <Grid item xs={12} md={6} lg={1.2}>
                 <MDBox mb={1.5}>
                   <ComplexStatisticsCard
                     sname="Iron Fly"
                     percentage={{
                       color: "success",
-                      amount: item.planA_status,
+                      amount: item.IRON_FLY,
                       label: "",
                     }} />
                 </MDBox>
-              </Grid><Grid item xs={12} md={6} lg={1.75}>
+              </Grid>
+              <Grid item xs={12} md={6} lg={1.75}>
                 <MDBox mb={1.5}>
                   <ComplexStatisticsCard
                     sname="Long Straddle"
                     percentage={{
                       color: "success",
-                      amount: item.planA_status,
+                      amount: item.LONG_STRADDLE,
                       label: "",
                     }} />
                 </MDBox>
@@ -115,10 +116,7 @@ function Dashboard() {
         </DashboardLayout>
       ) : (
         <p style={{
-          color: "black",
-          borderRadius: ".3rem",
-          background: "#8fd8f2",
-        }}>Loading...</p>
+        }} />
       )}
     </div>
   );
