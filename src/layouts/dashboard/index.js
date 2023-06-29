@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-console */
 /* eslint-disable prettier/prettier */
@@ -33,7 +34,12 @@ import ComplexStatisticsCard from "examples/Cards/StatisticsCards/ComplexStatist
 import { useEffect, useState } from "react";
 
 function Dashboard() {
-  const [posts, setPosts] = useState([]);
+  const [data, setData] = useState(null);
+
+  const refreshPage = ()=>{
+    window.location.reload();
+    }
+
   const development_url = "https://r5k39ic534.execute-api.us-east-2.amazonaws.com/dev/";
   const testing_url = "https://r5k39ic534.execute-api.us-east-2.amazonaws.com/test/";
   const dev_url = development_url;
@@ -42,111 +48,79 @@ function Dashboard() {
   const fetch_test_url = "https://r5k39ic534.execute-api.us-east-2.amazonaws.com/test/fetchstatus";
   const fetch_url = fetch_dev_url;
 
-  const page_refresh_seconds = 2;
+  const page_refresh_seconds = 30;
   const page_refresh_interval = page_refresh_seconds * 1000;
 
   const [usersForRender, setUsersForRender] = useState([]);
+ 
 
   useEffect(() => {
-    // const interval = setInterval(() => {
     fetch(fetch_url)
-      .then((res) => res.json())
-      .then((res) => {
-        // console.log(res.json);
-        setPosts(res);
-        console.log("CP1 Response From Fetch API: ", JSON.parse(JSON.stringify(res)));
-        // console.log("CP2 Response From Fetch API: ", posts[0].planA_status);
+      .then((response) => response.json())
+      // eslint-disable-next-line no-shadow
+      .then((data) => { 
+        // console.log(data.json);
+        setData(data)
       });
-    // }; ,60000);
-    // return () => clearInterval(interval);
+
   }, []);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      fetch(fetch_url)
-        .then((res) => res.json())
-        .then((res) => {
-          // console.log(res.json);
-
-          setPosts(res);
-          console.log(
-            `Response Refresh From Fetch API after ${page_refresh_seconds} Seconds: `,
-            res
-          );
-        });
-        displayApiRespone(fetch_url);
-    }, page_refresh_interval);
-    return () => clearInterval(interval);
-  }, []);
-
-  const displayApiRespone = (url) => {
-    fetch(url)
-      .then((response) => response.json())      
-      .then((data) => {
-        // console.log("Response From displayApiRespone - ", data.json);
-        const { planE_status, description } = data;
-        console.log("title - ",planE_status);
-        renderApiRespone(planE_status, description);
-      });
-  };
-
-
-  
-  const renderApiRespone = (title, description) => (
-    // console.log("title - ",title);
-      <div>
-        <h3>{title}</h3>
-        <p>{description}</p>
-      </div>
-    );
 
 
   return (
-    <DashboardLayout>
-      <DashboardNavbar />
-      <MDBox py={0}>
-        <Grid container spacing={1.2}>
-          <Grid item xs={12} md={6} lg={1.2}>
-            <MDBox mb={1.5}>
-              <ComplexStatisticsCard
-                sname="User"
-                percentage={{
-                  color: "info",
-                  amount: "Test1",
-                  label: "",
-                }}
-              />
-            </MDBox>
-          </Grid>
-          <Grid item xs={12} md={6} lg={1.2}>
-            <MDBox mb={1.5}>
-              <ComplexStatisticsCard
-                sname="Iron Fly"
-                percentage={{
-                  color: "success",
-                  amount: "Success",
-                  label: "",
-                }}
-              />
-            </MDBox>
-          </Grid>
-          <Grid item xs={12} md={6} lg={1.75}>
-            <MDBox mb={1.5}>
-              <ComplexStatisticsCard
-                sname="Long Straddle"
-                percentage={{
-                  color: "success",
-                  amount: "Success",
-                  label: "",
-                }}
-              />
-            </MDBox>
-          </Grid>
-        </Grid>
-      </MDBox>
-      
-    </DashboardLayout>
-  );
+    <div>
+      {data ? (
+        <DashboardLayout>
+          <DashboardNavbar />
+          <MDBox py={0}>
+          <Grid container spacing={1.2}>   
+          {data.map((item) => (
+          
+          <><Grid item xs={12} md={6} lg={1.2}>
+             
+              <MDBox mb={1.5}>
+                <ComplexStatisticsCard
+                  sname="User"
+                  percentage={{
+                    color: "info",
+                    amount: item.state_id,
+                    label: "",
+                  }} />
+              </MDBox>
+            </Grid><Grid item xs={12} md={6} lg={1.2}>
+                <MDBox mb={1.5}>
+                  <ComplexStatisticsCard
+                    sname="Iron Fly"
+                    percentage={{
+                      color: "success",
+                      amount: item.planA_status,
+                      label: "",
+                    }} />
+                </MDBox>
+              </Grid><Grid item xs={12} md={6} lg={1.75}>
+                <MDBox mb={1.5}>
+                  <ComplexStatisticsCard
+                    sname="Long Straddle"
+                    percentage={{
+                      color: "success",
+                      amount: item.planA_status,
+                      label: "",
+                    }} />
+                </MDBox>
+              </Grid></>
+          ))}
+  
 
-}
+        </Grid>
+        </MDBox>
+        </DashboardLayout>
+      ) : (
+        <p style={{
+          color: "black",
+          borderRadius: ".3rem",
+          background: "#8fd8f2",
+        }}>Loading...</p>
+      )}
+    </div>
+  );
+};
 export default Dashboard;
