@@ -97,7 +97,7 @@ function Dashboard() {
                     }} />
                 </MDBox>
               </Grid>
-              <Grid item xs={12} md={6} lg={1.75}>
+              <Grid item xs={12} md={6} lg={1.3}>
                 <MDBox mb={1.5}>
                   <ComplexStatisticsCard
                     sname="Long Straddle"
@@ -107,7 +107,41 @@ function Dashboard() {
                       label: "",
                     }} />
                 </MDBox>
-              </Grid></>
+              </Grid>
+              <Grid item xs={12} md={6} lg={1.6}>
+                <MDBox mb={1.5}>
+                  <ComplexStatisticsCard
+                    sname="Available Margin"
+                    percentage={{
+                      color: "success",
+                      amount: item.AVL_MARGIN,
+                      label: "",
+                    }} />
+                </MDBox>
+              </Grid>
+              <Grid item xs={12} md={6} lg={1.8}>
+                <MDBox mb={1.5}>
+                  <ComplexStatisticsCard
+                    sname="Positions Count"
+                    percentage={{
+                      color: "success",
+                      amount: item.POS_COUNT,
+                      label: "",
+                    }} />
+                </MDBox>
+              </Grid>
+              <Grid item xs={12} md={6} lg={1.2}>
+                <MDBox mb={1.5}>
+                  <ComplexStatisticsCard
+                    sname="P & L"
+                    percentage={{
+                      color: "success",
+                      amount: item.PNL,
+                      label: "",
+                    }} />
+                </MDBox>
+              </Grid>           
+              </>
           ))}
   
 
