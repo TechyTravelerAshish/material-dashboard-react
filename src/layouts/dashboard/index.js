@@ -78,7 +78,7 @@ function Dashboard() {
           <><Grid item xs={12} md={6} lg={1.2}>             
               <MDBox mb={1.5}>
                 <ComplexStatisticsCard
-                  sname="User"
+                  sname="UserX"
                   percentage={{
                     color: "info",
                     amount: item.USER_NAME,

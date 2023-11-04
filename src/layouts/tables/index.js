@@ -1,11 +1,10 @@
-/* eslint-disable no-unused-vars */
 /**
 =========================================================
-* Material Dashboard 2 React - v2.1.0
+* Material Dashboard 2 React - v2.2.0
 =========================================================
 
 * Product Page: https://www.creative-tim.com/product/material-dashboard-react
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
+* Copyright 2023 Creative Tim (https://www.creative-tim.com)
 
 Coded by www.creative-tim.com
 
@@ -54,7 +53,7 @@ function Tables() {
                 coloredShadow="info"
               >
                 <MDTypography variant="h6" color="white">
-                  Sample Table 1
+                  Authors Table
                 </MDTypography>
               </MDBox>
               <MDBox pt={3}>
@@ -68,16 +67,6 @@ function Tables() {
               </MDBox>
             </Card>
           </Grid>
-        </Grid>
-      </MDBox>
-    </DashboardLayout>
-  );
-}
-
-export default Tables;
-
-/*
-
           <Grid item xs={12}>
             <Card>
               <MDBox
@@ -91,7 +80,7 @@ export default Tables;
                 coloredShadow="info"
               >
                 <MDTypography variant="h6" color="white">
-                  Sample Table 2
+                  Projects Table
                 </MDTypography>
               </MDBox>
               <MDBox pt={3}>
@@ -105,5 +94,11 @@ export default Tables;
               </MDBox>
             </Card>
           </Grid>
+        </Grid>
+      </MDBox>
+      <Footer />
+    </DashboardLayout>
+  );
+}
 
-          */
+export default Tables;
